@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Markdown Previewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        function previewFunction() {
+            document.getElementById("preview").innerHTML = marked.parse(document.getElementById("editor").value)
+        }
+        const markdownInit = " # This is a header (H1 size)\n ## This is a sub header (H2 size)\n [This is a link](https://www.example.com)\n This is some `inline code`\n ```\n This is a code block\n ```\n - This is a list item\n > This is a blockquote\n ![This is an image](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcf.ltkcdn.net%2Fdogs%2Fimages%2Fslide%2F90432-566x848-Choc_LP4.jpg&f=1&nofb=1&ipt=a7479e45a8c7426f0cfa6fec032eb6ffb33180d0e112a3c8960e2bb900464cfe&ipo=images)\n **This is bolded text**"
+        function loadMarkdown() {
+                document.getElementById("preview").innerHTML = marked.parse(markdownInit);
+                document.getElementById("editor").innerHTML = markdownInit
+        }
+        // call the function when the page is loaded
+    
+
+    </script>
+    <style>
+        body {
+            background-color: #79EDD1;
+        }
+        .container-fluid {
+            background-color:#7995ED;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+
+        }
+        #editor {
+            width:60%;
+            min-width: 300px;
+            min-height: 200px;
+        }
+        #preview {
+            width:60%;
+            min-width: 300px;;
+            min-height: 400px;
+            height: 50%;
+            background-color: white;
+
+        }
+        .output {
+            height: 60%;
+            min-height: 500px;
+            background-color:#79EDD1;
+        }
+        .text {
+            border: black 3px;
+            box-shadow: 10px 10px #79D0ED;
+            text-align: left;
+        }
+    </style>
+  </head>
+  <body>
+    <div class ="container-fluid text-center">
+        <h1>Markdown Previewer</h1>
+    </div>
+    <div class ="container-fluid text-center">
+        <textarea id="editor" class="text" placeholder="add markdown here" onkeyup="previewFunction()"></textarea>
+    </div>
+    <div class ="container-fluid text-center output">
+        <div id="preview" class="text"></div>
+    </div>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>window.onload = loadMarkdown;</script>
+  </body>
+</html>
